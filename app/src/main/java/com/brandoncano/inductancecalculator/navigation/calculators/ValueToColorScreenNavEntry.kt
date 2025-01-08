@@ -52,9 +52,9 @@ fun NavGraphBuilder.valueToColorScreen(
                 openMenu.value = false
                 navigateToAbout(navHostController)
             },
-            onValueChanged = { resistance, units, tolerance, clearFocus ->
+            onValueChanged = { inductance, units, tolerance, clearFocus ->
                 reset.value = false
-                viewModel.updateValues(resistance, units, tolerance)
+                viewModel.updateValues(inductance, units, tolerance)
                 if (clearFocus) focusManager.clearFocus()
             },
         )

@@ -39,13 +39,13 @@ import com.brandoncano.sharedcomponents.text.textStyleTitle
 data class ImageColorPair(@DrawableRes val drawableRes: Int, val color: String)
 
 @Composable
-fun InductorDisplay(picture: Picture, resistor: InductorCtv) {
+fun InductorDisplay(picture: Picture, inductor: InductorCtv) {
     if (Sdk.isAtLeastAndroid7()) {
         DrawContent(picture) {
-            InductorLayout(resistor)
+            InductorLayout(inductor)
         }
     } else {
-        InductorLayout(resistor)
+        InductorLayout(inductor)
     }
 }
 

@@ -21,8 +21,8 @@ class InductorVtcViewModel(context: Context): ViewModel() {
 
     init {
         viewModelScope.launch {
-            val loadedResistor = repository.loadInductor()
-            _inductor.value = loadedResistor
+            val loadedInductor = repository.loadInductor()
+            _inductor.value = loadedInductor
             updateErrorState()
         }
     }
