@@ -31,6 +31,7 @@ import com.brandoncano.inductancecalculator.util.formatInductance
 import com.brandoncano.sharedcomponents.composables.AppCard
 import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 import com.brandoncano.sharedcomponents.composables.DrawContent
+import com.brandoncano.sharedcomponents.text.onSurfaceVariant
 import com.brandoncano.sharedcomponents.text.textStyleHeadline
 import com.brandoncano.sharedcomponents.text.textStyleSubhead
 import com.brandoncano.sharedcomponents.text.textStyleTitle
@@ -130,7 +131,7 @@ fun FiveBandInductorInfo() {
             Text(
                 text = stringResource(id = R.string.ctv_5_band_info_body),
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                style = textStyleSubhead(),
+                style = textStyleSubhead().onSurfaceVariant(),
             )
         }
     }
