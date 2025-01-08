@@ -1,4 +1,4 @@
-package com.brandoncano.inductancecalculator.components
+package com.brandoncano.inductancecalculator.data
 
 /**
  * Job: Holds the content for the special dropdown menu

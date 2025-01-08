@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.brandoncano.inductancecalculator"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.brandoncano.inductancecalculator"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 3
-        versionName = "1.0.2"
+        minSdk = 21
+        targetSdk = 35
+        versionCode = 4 // for 1.1.0
+        versionName = "1.1.0-develop"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -22,7 +22,7 @@ android {
     }
     applicationVariants.configureEach {
         resValue("string", "version", versionName)
-        resValue("string", "last_updated", "8/7/2024")
+        resValue("string", "last_updated", "1/7/2025")
     }
     buildTypes {
         release {
@@ -80,5 +80,5 @@ dependencies {
     testImplementation(libs.junit)
     // external libraries
     implementation(libs.ostermiller.util)
-    implementation(files("libs/app-shared.aar"))
+    implementation(libs.bmcano.util)
 }

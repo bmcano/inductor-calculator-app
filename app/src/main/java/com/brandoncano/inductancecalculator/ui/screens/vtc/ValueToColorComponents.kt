@@ -4,7 +4,6 @@ import android.graphics.Picture
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,15 +14,18 @@ import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
 import com.brandoncano.inductancecalculator.ui.screens.ctv.ImageColorPair
 import com.brandoncano.inductancecalculator.ui.screens.ctv.InductanceText
 import com.brandoncano.inductancecalculator.ui.screens.ctv.InductorRow
+import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.sharedcomponents.composables.DrawContent
 
 @Composable
-fun inductorPicture(inductor: InductorVtc, isError: Boolean): Picture {
-    val picture = remember { Picture() }
-    DrawContent(picture) {
+fun InductorDisplay(picture: Picture, inductor: InductorVtc, isError: Boolean) {
+    if (Sdk.isAtLeastAndroid7()) {
+        DrawContent(picture) {
+            InductorLayout(inductor, isError)
+        }
+    } else {
         InductorLayout(inductor, isError)
     }
-    return picture
 }
 
 @Composable

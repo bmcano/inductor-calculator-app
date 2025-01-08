@@ -1,36 +1,55 @@
 package com.brandoncano.inductancecalculator.model.vtc
 
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.brandoncano.inductancecalculator.util.formatInductor
+import com.brandoncano.inductancecalculator.util.isInvalidInput
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 class InductorVtcViewModel(context: Context): ViewModel() {
 
     private val repository = InductorVtcRepository.getInstance(context)
-    private var inductor = MutableLiveData<InductorVtc>().also {
-        it.value = InductorVtc()
-    }
 
-    override fun onCleared() {
-        inductor.value = null
+    private val _inductor = MutableStateFlow(InductorVtc())
+    val inductor: StateFlow<InductorVtc> get() = _inductor
+
+    private val _isError = MutableStateFlow(false)
+    val isError: StateFlow<Boolean> get() = _isError
+
+    init {
+        viewModelScope.launch {
+            val loadedInductor = repository.loadInductor()
+            _inductor.value = loadedInductor
+            updateErrorState()
+        }
     }
 
     fun clear() {
-        inductor.value = InductorVtc()
+        _inductor.value = InductorVtc()
+        _isError.value = false
         repository.clear()
     }
 
-    fun getInductorLiveData(): LiveData<InductorVtc> {
-        inductor.value = repository.loadInductor()
-        return inductor
+    fun updateValues(inductance: String, units: String, tolerance: String) {
+        _inductor.value = _inductor.value.copy(
+            inductance = inductance,
+            units = units,
+            tolerance = tolerance
+        )
+        updateErrorState()
+        if (!_isError.value) {
+            _inductor.value.formatInductor()
+            saveInductorValues()
+        }
+    }
+    private fun updateErrorState() {
+        _isError.value = _inductor.value.isInvalidInput()
     }
 
-    fun updateValues(val1: String, val2: String, val3: String) {
-        inductor.value = inductor.value?.copy(inductance = val1, units = val2, tolerance = val3)
-    }
-
-    fun saveInductorValues(inductor: InductorVtc) {
-        repository.saveInductor(inductor)
+    private fun saveInductorValues() {
+        repository.saveInductor(_inductor.value)
     }
 }

@@ -1,5 +1,6 @@
 package com.brandoncano.inductancecalculator.util
 
+import com.brandoncano.inductancecalculator.data.SmdTolerance
 import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
 import com.brandoncano.inductancecalculator.model.smd.InductorSmd
 import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
@@ -35,4 +36,8 @@ fun InductorSmd.isSmdInputInvalid(): Boolean {
 
 fun InductorSmd.formatInductance(): String {
     return InductanceSmdFormatter.execute(this)
+}
+
+fun InductorSmd.formatTolerance(): String {
+    return SmdTolerance.getTolerance(this.tolerance)
 }

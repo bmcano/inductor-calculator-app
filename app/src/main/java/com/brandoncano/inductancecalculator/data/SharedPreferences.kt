@@ -1,4 +1,4 @@
-package com.brandoncano.inductancecalculator.components
+package com.brandoncano.inductancecalculator.data
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

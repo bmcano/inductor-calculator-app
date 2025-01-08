@@ -1,6 +1,7 @@
 package com.brandoncano.inductancecalculator.model.smd
 
 import com.brandoncano.inductancecalculator.util.formatInductance
+import com.brandoncano.inductancecalculator.util.formatTolerance
 
 data class InductorSmd(
     var code: String = "",
@@ -12,6 +13,6 @@ data class InductorSmd(
 
     override fun toString(): String {
         val inductance = this.formatInductance()
-        return "$code\n$inductance"
+        return "$code $tolerance\n$inductance ${this.formatTolerance()}"
     }
 }
