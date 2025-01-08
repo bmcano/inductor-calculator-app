@@ -9,6 +9,7 @@ import com.brandoncano.inductancecalculator.constants.Links
 import com.brandoncano.inductancecalculator.navigation.calculators.colorToValueScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.smdScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.valueToColorScreen
+import com.brandoncano.sharedcomponents.data.Apps
 import com.brandoncano.sharedcomponents.navigation.SharedScreens
 import com.brandoncano.sharedcomponents.navigation.donateScreen
 import com.brandoncano.sharedcomponents.navigation.viewOurAppsScreen
@@ -32,7 +33,7 @@ fun Navigation(onOpenThemeDialog: () -> Unit) {
         valueToColorScreen(navController)
         // from shared library
         donateScreen(navController)
-        viewOurAppsScreen(navController)
+        viewOurAppsScreen(navController, Apps.Inductor)
     }
 }
 
