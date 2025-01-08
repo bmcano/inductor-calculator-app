@@ -12,8 +12,8 @@ android {
         applicationId = "com.brandoncano.inductancecalculator"
         minSdk = 21
         targetSdk = 35
-        versionCode = 4 // for 1.1.0
-        versionName = "1.1.0-develop"
+        versionCode = 5 // for 1.1.0
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -22,7 +22,7 @@ android {
     }
     applicationVariants.configureEach {
         resValue("string", "version", versionName)
-        resValue("string", "last_updated", "1/7/2025")
+        resValue("string", "last_updated", "1/8/2025")
     }
     buildTypes {
         release {
