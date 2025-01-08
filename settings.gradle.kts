@@ -26,4 +26,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "InductanceCalculator"
 include(":app")
- 

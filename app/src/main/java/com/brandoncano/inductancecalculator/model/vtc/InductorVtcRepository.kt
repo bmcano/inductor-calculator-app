@@ -1,7 +1,7 @@
 package com.brandoncano.inductancecalculator.model.vtc
 
 import android.content.Context
-import com.brandoncano.inductancecalculator.components.SharedPreferences
+import com.brandoncano.inductancecalculator.data.SharedPreferences
 
 class InductorVtcRepository(context: Context) {
 

@@ -1,4 +1,4 @@
-package com.brandoncano.inductancecalculator.components
+package com.brandoncano.inductancecalculator.data
 
 import com.brandoncano.inductancecalculator.constants.Symbols as S
 

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -16,10 +15,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
-import com.brandoncano.inductancecalculator.components.SmdTolerance
+import com.brandoncano.inductancecalculator.data.SmdTolerance
 import com.brandoncano.inductancecalculator.model.smd.InductorSmd
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.ui.theme.white
+import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.formatInductance
 import com.brandoncano.sharedcomponents.composables.AppCard
 import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
@@ -28,12 +28,14 @@ import com.brandoncano.sharedcomponents.text.textStyleLargeTitle
 import com.brandoncano.sharedcomponents.text.textStyleTitle
 
 @Composable
-fun smdInductorPicture(inductor: InductorSmd, isError: Boolean): Picture {
-    val picture = remember { Picture() }
-    DrawContent(picture) {
+fun SmdInductorDisplay(picture: Picture, inductor: InductorSmd, isError: Boolean) {
+    if (Sdk.isAtLeastAndroid7()) {
+        DrawContent(picture) {
+            SmdInductorLayout(inductor, isError)
+        }
+    } else {
         SmdInductorLayout(inductor, isError)
     }
-    return picture
 }
 
 @Composable
