@@ -19,14 +19,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Colors
 import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
-import com.brandoncano.inductancecalculator.ui.theme.iconGray
-import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.ColorFinder
+import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.formatInductance
 import com.brandoncano.sharedcomponents.composables.AppCard
 import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
@@ -109,6 +109,7 @@ fun InductanceText(inductance: String) {
     }
 }
 
+@Preview
 @Composable
 fun FiveBandInductorInfo() {
     Column(
@@ -124,7 +125,7 @@ fun FiveBandInductorInfo() {
             Text(
                 text = stringResource(id = R.string.ctv_5_band_info_header),
                 modifier = Modifier.padding(start = 8.dp),
-                style = textStyleHeadline().iconGray(),
+                style = textStyleHeadline().onSurfaceVariant(),
             )
         }
         AppCard(modifier = Modifier.padding(top = 12.dp)) {

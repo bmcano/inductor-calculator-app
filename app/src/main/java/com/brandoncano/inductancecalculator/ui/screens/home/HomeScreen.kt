@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
@@ -30,8 +31,9 @@ import com.brandoncano.inductancecalculator.ui.composables.AboutAppMenuItem
 import com.brandoncano.inductancecalculator.ui.composables.AppThemeMenuItem
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
-import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
+import com.brandoncano.sharedcomponents.composables.AppHomeTopAppBar
 import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
+import com.brandoncano.sharedcomponents.composables.FeedbackMenuItem
 import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
 import com.brandoncano.sharedcomponents.text.textStyleHeadline
 
@@ -49,15 +51,13 @@ fun HomeScreen(
 ) {
     Scaffold(
         topBar = {
-            AppMenuTopAppBar(
+            AppHomeTopAppBar(
                 titleText = stringResource(R.string.app_name),
                 interactionSource = remember { MutableInteractionSource() },
                 showMenu = openMenu,
+                appIcon = painterResource(R.drawable.img_app_icon),
                 content = {
-                    com.brandoncano.sharedcomponents.composables.FeedbackMenuItem(
-                        Links.APP_NAME,
-                        openMenu
-                    )
+                    FeedbackMenuItem(Links.APP_NAME, openMenu)
                     AppThemeMenuItem(openMenu, onOpenThemeDialog)
                     AboutAppMenuItem(onAboutTapped)
                 }
@@ -95,12 +95,10 @@ private fun HomeScreenContent(
             .padding(horizontal = sidePadding),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        AppIcon()
-        Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = stringResource(id = R.string.home_calculators_header_text),
             modifier = Modifier
-                .padding(vertical = 12.dp)
+                .padding(top = 16.dp, bottom = 12.dp)
                 .align(Alignment.Start),
             style = textStyleHeadline(),
         )
