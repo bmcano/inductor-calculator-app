@@ -16,6 +16,7 @@ import com.brandoncano.inductancecalculator.model.InductorViewModelFactory
 import com.brandoncano.inductancecalculator.model.vtc.InductorVtcViewModel
 import com.brandoncano.inductancecalculator.navigation.Screen
 import com.brandoncano.inductancecalculator.navigation.navigateToAbout
+import com.brandoncano.inductancecalculator.navigation.navigateToLearnColorCodes
 import com.brandoncano.inductancecalculator.ui.screens.vtc.ValueToColorScreen
 import com.brandoncano.inductancecalculator.util.formatInductor
 
@@ -57,6 +58,7 @@ fun NavGraphBuilder.valueToColorScreen(
                 viewModel.updateValues(inductance, units, tolerance)
                 if (clearFocus) focusManager.clearFocus()
             },
+            onLearnColorCodesTapped = { navigateToLearnColorCodes(navHostController) }
         )
     }
 }

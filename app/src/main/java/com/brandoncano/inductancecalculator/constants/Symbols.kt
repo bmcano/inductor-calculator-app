@@ -8,4 +8,5 @@ object Symbols {
     const val UH = "μH"
     const val MH = "mH"
     const val PM = "±"
+    const val X = "×"
 }

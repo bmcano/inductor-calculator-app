@@ -9,8 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.icons.outlined.Lightbulb
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Colors
@@ -28,12 +26,12 @@ import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.util.ColorFinder
 import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.formatInductance
+import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
 import com.brandoncano.sharedcomponents.composables.AppCard
 import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 import com.brandoncano.sharedcomponents.composables.DrawContent
-import com.brandoncano.sharedcomponents.text.onSurfaceVariant
+import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
 import com.brandoncano.sharedcomponents.text.textStyleHeadline
-import com.brandoncano.sharedcomponents.text.textStyleSubhead
 import com.brandoncano.sharedcomponents.text.textStyleTitle
 
 data class ImageColorPair(@DrawableRes val drawableRes: Int, val color: String)
@@ -109,32 +107,24 @@ fun InductanceText(inductance: String) {
     }
 }
 
-@Preview
 @Composable
-fun FiveBandInductorInfo() {
+fun FiveBandInductorInfo(onLearnColorCodesTapped: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.Start
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(
-                imageVector = Icons.Outlined.Info,
-                contentDescription = stringResource(id = R.string.content_description_info),
-                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
-            )
-            Text(
-                text = stringResource(id = R.string.ctv_5_band_info_header),
-                modifier = Modifier.padding(start = 8.dp),
-                style = textStyleHeadline().onSurfaceVariant(),
-            )
-        }
-        AppCard(modifier = Modifier.padding(top = 12.dp)) {
-            Text(
-                text = stringResource(id = R.string.ctv_5_band_info_body),
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                style = textStyleSubhead().onSurfaceVariant(),
-            )
-        }
+        Text(
+            text = stringResource(R.string.learn_color_codes_headline),
+            modifier = Modifier.padding(bottom = 16.dp),
+            style = textStyleHeadline(),
+        )
+        AppArrowCardButton(
+            ArrowCardButtonContents(
+                imageVector = Icons.Outlined.Lightbulb,
+                text = stringResource(id = R.string.learn_color_codes_headline),
+                onClick = onLearnColorCodesTapped,
+            ),
+        )
     }
 }
 

@@ -9,6 +9,8 @@ import com.brandoncano.inductancecalculator.constants.Links
 import com.brandoncano.inductancecalculator.navigation.calculators.colorToValueScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.smdScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.valueToColorScreen
+import com.brandoncano.inductancecalculator.navigation.learn.learnColorCodes
+import com.brandoncano.inductancecalculator.navigation.learn.learnSmdCodes
 import com.brandoncano.sharedcomponents.data.Apps
 import com.brandoncano.sharedcomponents.navigation.SharedScreens
 import com.brandoncano.sharedcomponents.navigation.donateScreen
@@ -29,6 +31,8 @@ fun Navigation(onOpenThemeDialog: () -> Unit) {
         aboutScreen(navController)
         colorToValueScreen(navController)
         homeScreen(navController, onOpenThemeDialog)
+        learnColorCodes(navController)
+        learnSmdCodes(navController)
         smdScreen(navController)
         valueToColorScreen(navController)
         // from shared library
@@ -57,6 +61,14 @@ fun navigateToSmd(navController: NavHostController) {
     navController.navigate(Screen.Smd.route) {
         popUpTo(Screen.Home.route)
     }
+}
+
+fun navigateToLearnColorCodes(navController: NavHostController) {
+    navController.navigate(Screen.LearnColorCodes.route)
+}
+
+fun navigateToLearnSmdCodes(navController: NavHostController) {
+    navController.navigate(Screen.LearnSmdCodes.route)
 }
 
 fun navigateToOurApps(navController: NavHostController) {

@@ -16,6 +16,7 @@ import com.brandoncano.inductancecalculator.model.InductorViewModelFactory
 import com.brandoncano.inductancecalculator.model.ctv.InductorCtvViewModel
 import com.brandoncano.inductancecalculator.navigation.Screen
 import com.brandoncano.inductancecalculator.navigation.navigateToAbout
+import com.brandoncano.inductancecalculator.navigation.navigateToLearnColorCodes
 import com.brandoncano.inductancecalculator.ui.screens.ctv.ColorToValueScreen
 
 fun NavGraphBuilder.colorToValueScreen(
@@ -52,6 +53,7 @@ fun NavGraphBuilder.colorToValueScreen(
                 reset.value = false
                 viewModel.updateBand(bandNumber, color)
             },
+            onLearnColorCodesTapped = { navigateToLearnColorCodes(navHostController) },
         )
     }
 }

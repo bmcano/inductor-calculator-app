@@ -16,20 +16,34 @@
     <string name="about_title">About The App</string>
     <string name="about_description">Description</string>
     <string name="about_description_01">This app features calculators for color-band inductors, capable of converting between color to value and value to color and SMD inductors.</string>
+    <string name="about_description_02">This app follows the IEC 60062 international standard for inductor coding and calculations to help ensure accuracy.</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
     <!-- CtV/VtC text -->
-    <string name="ctv_5_band_info_header">Five band inductors</string>
-    <string name="ctv_5_band_info_body">Some inductors have five bands. If the first band is a double-length silver band, it indicates that the inductor uses military standards. Please note that this app does not support five-band inductors.</string>
+    <string name="learn_color_codes_headline">Learn about color codes</string>
+    <string name="learn_color_codes_button">Explore the IEC 60062 standard</string>
     <!-- Home screen/components text -->
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_button_color_to_value">Color to value</string>
     <string name="home_button_value_to_color">Value to color</string>
     <string name="home_button_smd">SMD inductor</string>
-    <!--<string name="home_button_design">Inductor design tool</string>-->
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_button_rate_us">Rate this app on Google Play</string>
     <string name="home_button_view_apps">Check out our other apps</string>
     <string name="home_button_donate">Donate</string>
+    <!-- Learn screens -->
+    <string name="learn_color_title">IEC 60062 Standard</string>
+    <string name="learn_intro_title">Introduction</string>
+    <string name="learn_color_intro_body">The inductor color code uses colored bands to indicate inductance values and tolerance. This system allows for easy identification of inductor values in a compact format.</string>
+    <string name="learn_color_meaning_title">Color Bands and Their Meanings</string>
+    <string name="learn_color_meaning_body">Each color corresponds to a specific value, depending on its position on the inductor. The standard colors and their corresponding values are displayed in the table below.</string>
+    <string name="learn_color_code_explanation">Explanation:</string>
+    <string name="learn_color_four_band_headline">Four-Band Inductors</string>
+    <string name="learn_color_four_band_body">Four-band inductors have two significant figure bands, one multiplier band, and one tolerance band.</string>
+    <string name="learn_color_four_band_code">47 \u00D7 100 ±5%</string>
+    <string name="learn_color_four_band_description">Yellow (4), Violet (7), Red (×100), Gold (±5%)</string>
+    <string name="learn_color_five_band_headline">Five-Band Inductors</string>
+    <string name="learn_color_five_band_body">Some inductors have five bands. If the first band is a double-length silver band, it indicates that the inductor uses military standards. Please note that this app does not support five-band inductors.</string>
+    <string name="learn_disclaimer_footer">The information provided here regarding IEC standards is intended for general guidance. Please note that not all components may strictly adhere to these standards, as manufacturers may have variations or different interpretations. Always consult the specific datasheet or contact the manufacturer directly if you are unsure about the specifications or standards for a particular component.</string>
     <!-- Menu items -->
     <string name="menu_about">About the app</string>
     <string name="menu_app_theme">App appearance</string>

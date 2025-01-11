@@ -20,6 +20,11 @@ fun TextStyle.white() = this.merge(
     color = white
 )
 
+@Composable
+fun TextStyle.black() = this.merge(
+    color = black
+)
+
 @AppComponentPreviews
 @Composable
 private fun TextColorsPreview() {
@@ -31,6 +36,10 @@ private fun TextColorsPreview() {
             Text(
                 text = "White",
                 style = textStyleTitle().white(),
+            )
+            Text(
+                text = "Black",
+                style = textStyleTitle().black(),
             )
         }
     }

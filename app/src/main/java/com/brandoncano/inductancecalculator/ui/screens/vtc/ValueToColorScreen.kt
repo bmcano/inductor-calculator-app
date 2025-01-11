@@ -51,6 +51,7 @@ fun ValueToColorScreen(
     onClearSelectionsTapped: () -> Unit,
     onAboutTapped: () -> Unit,
     onValueChanged: (String, String, String, Boolean) -> Unit,
+    onLearnColorCodesTapped: () -> Unit,
 ) {
     val picture = remember { Picture() }
     Scaffold(
@@ -89,6 +90,7 @@ fun ValueToColorScreen(
             isError = isError,
             reset = reset,
             onValueChanged = onValueChanged,
+            onLearnColorCodesTapped = onLearnColorCodesTapped,
         )
     }
 }
@@ -101,6 +103,7 @@ private fun ValueToColorScreenContent(
     isError: Boolean,
     reset: MutableState<Boolean>,
     onValueChanged: (String, String, String, Boolean) -> Unit,
+    onLearnColorCodesTapped: () -> Unit,
 ) {
     val inductance = remember { mutableStateOf(inductor.inductance) }
     val sidePadding = dimensionResource(R.dimen.app_side_padding)
@@ -146,7 +149,7 @@ private fun ValueToColorScreenContent(
             }
         )
         AppDivider(modifier = Modifier.padding(vertical = 24.dp))
-        FiveBandInductorInfo()
+        FiveBandInductorInfo(onLearnColorCodesTapped)
         Spacer(modifier = Modifier.height(48.dp))
     }
 }
@@ -163,5 +166,6 @@ private fun ValueToColorScreenPreview() {
         onClearSelectionsTapped = {},
         onAboutTapped = {},
         onValueChanged = { _, _, _, _ -> },
+        onLearnColorCodesTapped = {},
     )
 }
