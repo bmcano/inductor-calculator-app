@@ -38,7 +38,7 @@ fun LearnColorCodesScreen(
     Scaffold(
         topBar = {
             AppTopAppBar(
-                titleText = stringResource(R.string.learn_color_title),
+                titleText = stringResource(R.string.learn_title),
                 navigationIcon =  Icons.Filled.Close,
                 onNavigateBack = onNavigateBack,
             )

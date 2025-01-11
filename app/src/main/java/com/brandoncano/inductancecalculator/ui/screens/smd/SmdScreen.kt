@@ -13,7 +13,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Lightbulb
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +35,8 @@ import com.brandoncano.inductancecalculator.model.smd.InductorSmd
 import com.brandoncano.inductancecalculator.ui.composables.AboutAppMenuItem
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.util.Sdk
+import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
+import com.brandoncano.sharedcomponents.composables.AppDivider
 import com.brandoncano.sharedcomponents.composables.AppDropDownMenu
 import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
 import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
@@ -41,6 +45,8 @@ import com.brandoncano.sharedcomponents.composables.ClearSelectionsMenuItem
 import com.brandoncano.sharedcomponents.composables.FeedbackMenuItem
 import com.brandoncano.sharedcomponents.composables.ShareImageMenuItem
 import com.brandoncano.sharedcomponents.composables.ShareTextMenuItem
+import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
+import com.brandoncano.sharedcomponents.text.textStyleHeadline
 import java.util.Locale
 
 @Composable
@@ -53,6 +59,7 @@ fun SmdScreen(
     onClearSelectionsTapped: () -> Unit,
     onAboutTapped: () -> Unit,
     onValueChanged: (String, String, Boolean) -> Unit,
+    onLearnSmdCodesTapped: () -> Unit,
 ) {
     val picture = remember { Picture() }
     Scaffold(
@@ -91,6 +98,7 @@ fun SmdScreen(
             inductor = inductor,
             isError = isError,
             onValueChanged = onValueChanged,
+            onLearnSmdCodesTapped = onLearnSmdCodesTapped,
         )
     }
 }
@@ -103,6 +111,7 @@ private fun SmdScreenContent(
     inductor: InductorSmd,
     isError: Boolean,
     onValueChanged: (String, String, Boolean) -> Unit,
+    onLearnSmdCodesTapped: () -> Unit,
 ) {
     val code = remember { mutableStateOf(inductor.code) }
     val sidePadding = dimensionResource(R.dimen.app_side_padding)
@@ -140,6 +149,21 @@ private fun SmdScreenContent(
             reset = reset.value,
             onOptionSelected = { onValueChanged(code.value, it, true) }
         )
+        AppDivider(modifier = Modifier.padding(vertical = 24.dp))
+        Column(horizontalAlignment = Alignment.Start) {
+            Text(
+                text = stringResource(R.string.learn_smd_codes_headline),
+                modifier = Modifier.padding(bottom = 16.dp),
+                style = textStyleHeadline(),
+            )
+            AppArrowCardButton(
+                ArrowCardButtonContents(
+                    imageVector = Icons.Outlined.Lightbulb,
+                    text = stringResource(R.string.learn_color_codes_button),
+                    onClick = onLearnSmdCodesTapped,
+                )
+            )
+        }
         Spacer(modifier = Modifier.height(48.dp))
     }
 }
@@ -157,6 +181,7 @@ private fun SmdScreenPreview() {
             onClearSelectionsTapped = {},
             onAboutTapped = {},
             onValueChanged = { _, _, _-> },
+            onLearnSmdCodesTapped = {},
         )
     }
 }

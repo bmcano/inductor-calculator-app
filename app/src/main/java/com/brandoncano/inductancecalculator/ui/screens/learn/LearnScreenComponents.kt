@@ -21,12 +21,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Symbols
+import com.brandoncano.inductancecalculator.data.SmdTolerance
 import com.brandoncano.inductancecalculator.ui.theme.black
 import com.brandoncano.inductancecalculator.ui.theme.blue
 import com.brandoncano.inductancecalculator.ui.theme.red
 import com.brandoncano.inductancecalculator.ui.theme.violet
 import com.brandoncano.inductancecalculator.ui.theme.white
 import com.brandoncano.inductancecalculator.util.ColorFinder
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 import com.brandoncano.sharedcomponents.composables.AppDivider
 import com.brandoncano.sharedcomponents.composables.AppStandardDivider
 import com.brandoncano.sharedcomponents.text.onSurfaceVariant
@@ -170,5 +172,55 @@ private fun TableColorCell(modifier: Modifier, text: String, backgroundColor: Co
             style = style,
             textAlign = TextAlign.Center,
         )
+    }
+}
+
+@AppComponentPreviews
+@Composable
+fun SmdToleranceTable() {
+    val tolerance = SmdTolerance.getTolerancePairs()
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.learn_smd_tolerance_letter),
+                modifier = Modifier.weight(1f),
+                style = textStyleHeadline(),
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text = stringResource(R.string.learn_smd_tolerance_value),
+                modifier = Modifier.weight(1f),
+                style = textStyleHeadline(),
+                textAlign = TextAlign.Center,
+            )
+        }
+        AppDivider(modifier = Modifier.padding(horizontal = 8.dp))
+        tolerance.forEach { (letter, value) ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = letter,
+                    modifier = Modifier.weight(1f),
+                    style = textStyleSubhead(),
+                    textAlign = TextAlign.Center,
+                )
+                Text(
+                    text = value,
+                    modifier = Modifier.weight(1f),
+                    style = textStyleSubhead().onSurfaceVariant(),
+                    textAlign = TextAlign.Center,
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }

@@ -16,6 +16,7 @@ import com.brandoncano.inductancecalculator.model.InductorViewModelFactory
 import com.brandoncano.inductancecalculator.model.smd.InductorSmdViewModel
 import com.brandoncano.inductancecalculator.navigation.Screen
 import com.brandoncano.inductancecalculator.navigation.navigateToAbout
+import com.brandoncano.inductancecalculator.navigation.navigateToLearnSmdCodes
 import com.brandoncano.inductancecalculator.ui.screens.smd.SmdScreen
 
 fun NavGraphBuilder.smdScreen(
@@ -55,6 +56,7 @@ fun NavGraphBuilder.smdScreen(
                 viewModel.updateValues(code, units)
                 if (clearFocus) focusManager.clearFocus()
             },
+            onLearnSmdCodesTapped = { navigateToLearnSmdCodes(navHostController) }
         )
     }
 }
