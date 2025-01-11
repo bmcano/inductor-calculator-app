@@ -63,9 +63,6 @@
     <string name="default_ctv_value">Select colors</string>
     <string name="default_vtc_value">Enter inductance</string>
     <string name="default_smd_value">Enter code</string>
-    <!-- Content descriptions -->
-    <string name="content_description_app_icon">App icon</string>
-    <string name="content_description_info">Information</string>
     <!-- error message -->
     <string name="error_na">N/A</string>
     <string name="error_invalid_inductance">Invalid inductance</string>
