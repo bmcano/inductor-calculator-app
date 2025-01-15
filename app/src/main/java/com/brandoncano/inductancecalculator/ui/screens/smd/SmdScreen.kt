@@ -32,9 +32,9 @@ import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Links
 import com.brandoncano.inductancecalculator.data.SmdTolerance
 import com.brandoncano.inductancecalculator.model.smd.InductorSmd
-import com.brandoncano.inductancecalculator.ui.composables.AboutAppMenuItem
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.util.Sdk
+import com.brandoncano.sharedcomponents.composables.AboutAppMenuItem
 import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
 import com.brandoncano.sharedcomponents.composables.AppDivider
 import com.brandoncano.sharedcomponents.composables.AppDropDownMenu

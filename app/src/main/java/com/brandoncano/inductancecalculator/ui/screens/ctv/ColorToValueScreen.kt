@@ -26,11 +26,11 @@ import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Links
 import com.brandoncano.inductancecalculator.data.DropdownLists
 import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
-import com.brandoncano.inductancecalculator.ui.composables.AboutAppMenuItem
 import com.brandoncano.inductancecalculator.ui.composables.ImageTextDropDownMenu
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.shareableText
+import com.brandoncano.sharedcomponents.composables.AboutAppMenuItem
 import com.brandoncano.sharedcomponents.composables.AppDivider
 import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
 import com.brandoncano.sharedcomponents.composables.AppScreenPreviews

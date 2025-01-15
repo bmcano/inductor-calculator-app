@@ -20,7 +20,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
-import com.brandoncano.inductancecalculator.ui.screens.home.OurAppsButtons
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
 import com.brandoncano.sharedcomponents.composables.AppCard
@@ -29,6 +28,7 @@ import com.brandoncano.sharedcomponents.composables.AppTopAppBar
 import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
 import com.brandoncano.sharedcomponents.screen.AppInfoCard
 import com.brandoncano.sharedcomponents.screen.AuthorCard
+import com.brandoncano.sharedcomponents.screen.OurAppsButtons
 import com.brandoncano.sharedcomponents.text.onSurfaceVariant
 import com.brandoncano.sharedcomponents.text.textStyleBody
 import com.brandoncano.sharedcomponents.text.textStyleHeadline

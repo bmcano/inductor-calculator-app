@@ -8,11 +8,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.brandoncano.inductancecalculator.model.MainViewModel
 import com.brandoncano.inductancecalculator.navigation.Navigation
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.sharedcomponents.composables.AppThemeDialog
 import com.brandoncano.sharedcomponents.data.ThemeMode
+import com.brandoncano.sharedcomponents.model.MainViewModel
 
 class MainActivity : ComponentActivity() {
 

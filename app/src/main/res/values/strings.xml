@@ -27,10 +27,6 @@
     <string name="home_button_color_to_value">Color to value</string>
     <string name="home_button_value_to_color">Value to color</string>
     <string name="home_button_smd">SMD inductor</string>
-    <string name="home_our_apps_header_text">Our apps</string>
-    <string name="home_button_rate_us">Rate this app on Google Play</string>
-    <string name="home_button_view_apps">Check out our other apps</string>
-    <string name="home_button_donate">Donate</string>
     <!-- Learn screens -->
     <string name="learn_title">IEC 60062 Standard</string>
     <string name="learn_intro_title">Introduction</string>
@@ -54,11 +50,7 @@
     <string name="learn_smd_tolerance_letter">Symbol</string>
     <string name="learn_smd_tolerance_value">Value</string>
     <string name="learn_smd_tolerance_table">Tolerance Table</string>
-
     <string name="learn_disclaimer_footer">The information provided here regarding IEC standards is intended for general guidance. Please note that not all components may strictly adhere to these standards, as manufacturers may have variations or different interpretations. Always consult the specific datasheet or contact the manufacturer directly if you are unsure about the specifications or standards for a particular component.</string>
-    <!-- Menu items -->
-    <string name="menu_about">About the app</string>
-    <string name="menu_app_theme">App appearance</string>
     <!-- Default text -->
     <string name="default_ctv_value">Select colors</string>
     <string name="default_vtc_value">Enter inductance</string>
