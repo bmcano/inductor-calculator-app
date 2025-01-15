@@ -12,8 +12,8 @@ android {
         applicationId = "com.brandoncano.inductancecalculator"
         minSdk = 21
         targetSdk = 35
-        versionCode = 6 // for 1.2.0
-        versionName = "1.2.0"
+        versionCode = 7 // for 1.2.1
+        versionName = "1.2.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -23,7 +23,7 @@ android {
     applicationVariants.configureEach {
         val suffix = if (buildType.name == "debug") ", DEBUG" else ""
         resValue("string", "version", "$versionName$suffix")
-        resValue("string", "last_updated", "1/11/2025")
+        resValue("string", "last_updated", "1/15/2025")
     }
     buildTypes {
         release {
