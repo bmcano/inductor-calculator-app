@@ -102,14 +102,14 @@ fun InductorColorCodeTable() {
             HeaderCell(modifier, "Tolerance")
         }
         AppStandardDivider()
-        inductorColorCodes.forEachIndexed { index, resistorColorCode ->
+        inductorColorCodes.forEachIndexed { index, inductorColorCode ->
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                val color = ColorFinder.textToColor(resistorColorCode.color)
+                val color = ColorFinder.textToColor(inductorColorCode.color)
                 TableColorCell(
                     modifier = Modifier
                         .weight(1f)
@@ -119,13 +119,13 @@ fun InductorColorCodeTable() {
                             shape = MaterialTheme.shapes.small
                         )
                         .padding(vertical = 4.dp),
-                    text = resistorColorCode.color,
+                    text = inductorColorCode.color,
                     backgroundColor = color,
                 )
                 val modifier = Modifier.padding(12.dp).weight(1f)
-                TableCell(modifier, resistorColorCode.significantFigures)
-                TableCell(modifier, resistorColorCode.multiplier)
-                TableCell(modifier, resistorColorCode.tolerance)
+                TableCell(modifier, inductorColorCode.significantFigures)
+                TableCell(modifier, inductorColorCode.multiplier)
+                TableCell(modifier, inductorColorCode.tolerance)
             }
             if (index != inductorColorCodes.size - 1) AppStandardDivider()
         }

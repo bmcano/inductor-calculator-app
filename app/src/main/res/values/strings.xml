@@ -1,5 +1,5 @@
 <resources>
-    <!-- Activity title   -->
+    <!-- Activity title -->
     <string name="app_name">Inductor Calculator</string>
     <string name="title_color_to_value">Color to Value</string>
     <string name="title_value_to_color">Value to Color</string>
@@ -40,9 +40,9 @@
     <string name="learn_color_four_band_description">Yellow (4), Violet (7), Red (×100), Gold (±5%)</string>
     <string name="learn_color_five_band_headline">Five-Band Inductors</string>
     <string name="learn_color_five_band_body">Some inductors have five bands. If the first band is a double-length silver band, it indicates that the inductor uses military standards. Please note that this app does not support five-band inductors.</string>
-    <string name="learn_smd_intro_body">The IEC 60062 standard defines code markings for inductors. It uses alphanumeric codes to represent resistance values in a compact format, making it suitable for marking small components, such as SMD (Surface-Mount Device) inductors.</string>
-    <string name="learn_smd_resistor_codes_title">SMD Inductor Codes</string>
-    <string name="learn_smd_resistor_codes_body">SMD inductors use one coding system. Which is a 3 digit code and sometimes an optional letter which indicates a tolerance value.</string>
+    <string name="learn_smd_intro_body">The IEC 60062 standard defines code markings for inductors. It uses alphanumeric codes to represent inductance values in a compact format, making it suitable for marking small components, such as SMD (Surface-Mount Device) inductors.</string>
+    <string name="learn_smd_inductor_codes_title">SMD Inductor Codes</string>
+    <string name="learn_smd_inductor_codes_body">SMD inductors use one coding system. Which is a 3 digit code and sometimes an optional letter which indicates a tolerance value.</string>
     <string name="learn_smd_code_example">Example:</string>
     <string name="learn_smd_three_code_body">The three-digit code is similar to the inductor color code system. The first two digits represent the significant figures, and the third digit is the multiplier. The equation is:</string>
     <string name="learn_smd_three_digit_formula">xy \u00D7 10\u1dbb = μH</string>

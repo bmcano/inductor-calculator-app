@@ -69,12 +69,12 @@ private fun LearnSmdCodesScreenContent(paddingValues: PaddingValues) {
         )
 
         Text(
-            text = stringResource(R.string.learn_smd_resistor_codes_title),
+            text = stringResource(R.string.learn_smd_inductor_codes_title),
             modifier = Modifier.padding(bottom = 12.dp),
             style = textStyleLargeTitle(),
         )
         Text(
-            text = stringResource(R.string.learn_smd_resistor_codes_body),
+            text = stringResource(R.string.learn_smd_inductor_codes_body),
             modifier = Modifier.padding(bottom = 12.dp),
             style = textStyleBody().onSurfaceVariant(),
         )
