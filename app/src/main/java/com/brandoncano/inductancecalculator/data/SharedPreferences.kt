@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
+import androidx.core.content.edit
 
 /**
  * Job: Holds the names, keys, and methods for all shared_prefs data.
@@ -31,11 +32,11 @@ enum class SharedPreferences(private val _name: String, private val _key: String
 
     fun saveData(context: Context, input: String) {
         val sharedPreferences = context.getSharedPreferences(_name, AppCompatActivity.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        val gson = Gson()
-        val json: String = gson.toJson(input)
-        editor.putString(_key, json)
-        editor.apply()
+        sharedPreferences.edit {
+            val gson = Gson()
+            val json: String = gson.toJson(input)
+            putString(_key, json)
+        }
     }
 
     fun loadData(context: Context): String {
@@ -48,7 +49,8 @@ enum class SharedPreferences(private val _name: String, private val _key: String
 
     fun clearData(context: Context) {
         val sharedPreferences = context.getSharedPreferences(_name, AppCompatActivity.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.clear().apply()
+        sharedPreferences.edit {
+            clear()
+        }
     }
 }

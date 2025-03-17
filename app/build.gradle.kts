@@ -45,7 +45,6 @@ android {
         compose = true
     }
 
-    @Suppress("UnstableApiUsage")
     testOptions {
         unitTests.isReturnDefaultValues = true
     }

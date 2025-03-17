@@ -22,11 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
+import com.brandoncano.sharedcomponents.composables.AppCard
 import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 import com.brandoncano.sharedcomponents.composables.AppTopAppBar
 import com.brandoncano.sharedcomponents.text.onSurfaceVariant
 import com.brandoncano.sharedcomponents.text.textStyleBody
-import com.brandoncano.sharedcomponents.text.textStyleLargeTitle
 import com.brandoncano.sharedcomponents.text.textStyleTitle
 
 @Composable
@@ -61,50 +61,54 @@ private fun LearnSmdCodesScreenContent(paddingValues: PaddingValues) {
         horizontalAlignment = Alignment.Start,
     ) {
         Text(
-            text = stringResource(R.string.learn_intro_title),
+            text = stringResource(R.string.smd_info_intro_title),
             modifier = Modifier.padding(vertical = 12.dp),
-            style = textStyleLargeTitle(),
+            style = textStyleTitle(),
         )
         Text(
-            text = stringResource(R.string.learn_smd_intro_body),
+            text = stringResource(R.string.smd_info_intro_body),
             modifier = Modifier.padding(bottom = 32.dp),
             style = textStyleBody().onSurfaceVariant(),
         )
 
         Text(
-            text = stringResource(R.string.learn_smd_inductor_codes_title),
+            text = stringResource(R.string.smd_info_code_title),
             modifier = Modifier.padding(bottom = 12.dp),
-            style = textStyleLargeTitle(),
+            style = textStyleTitle(),
         )
         Text(
-            text = stringResource(R.string.learn_smd_inductor_codes_body),
-            modifier = Modifier.padding(bottom = 12.dp),
-            style = textStyleBody().onSurfaceVariant(),
-        )
-        Text(
-            text = stringResource(R.string.learn_smd_three_code_body),
+            text = stringResource(R.string.smd_info_code_body_1),
             modifier = Modifier.padding(bottom = 12.dp),
             style = textStyleBody().onSurfaceVariant(),
         )
-        CodeExampleCard(
-            code = "Code: xyz",
-            description = stringResource(R.string.learn_smd_three_digit_formula),
-        )
         Text(
-            text = stringResource(R.string.learn_smd_code_example),
+            text = stringResource(R.string.smd_info_code_body_2),
+            modifier = Modifier.padding(bottom = 12.dp),
+            style = textStyleBody().onSurfaceVariant(),
+        )
+        EquationCard(stringResource(R.string.smd_info_three_digit_formula))
+        Text(
+            text = stringResource(R.string.smd_info_three_digit_example_label),
             modifier = Modifier.padding(vertical = 12.dp),
             style = textStyleBody().onSurfaceVariant(),
         )
-        CodeExampleCard(
-            code = "Code: 472",
-            description = stringResource(R.string.learn_smd_three_digit_example),
-        )
+        EquationCard(stringResource(R.string.smd_info_three_digit_example))
+
+        // TODO: something about using 'R' in the codes.
+
         Text(
-            text = stringResource(R.string.learn_smd_tolerance_table),
-            modifier = Modifier.padding(top = 24.dp, bottom = 12.dp),
+            text = stringResource(R.string.smd_info_tolerance_title),
+            modifier = Modifier.padding(top = 32.dp),
             style = textStyleTitle(),
         )
-        SmdToleranceTable()
+        Text(
+            text = stringResource(R.string.smd_info_tolerance_body),
+            modifier = Modifier.padding(vertical = 12.dp),
+            style = textStyleBody().onSurfaceVariant(),
+        )
+        AppCard {
+            SmdToleranceTable()
+        }
         DisclaimerText()
         Spacer(modifier = Modifier.height(48.dp))
     }
