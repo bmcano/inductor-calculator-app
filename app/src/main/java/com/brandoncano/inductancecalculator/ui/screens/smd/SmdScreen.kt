@@ -67,7 +67,7 @@ fun SmdScreen(
     Scaffold(
         topBar = {
             AppMenuTopAppBar(
-                titleText = stringResource(R.string.title_smd),
+                titleText = stringResource(R.string.smd_title),
                 interactionSource = remember { MutableInteractionSource() },
                 showMenu = openMenu,
                 navigationIcon = Icons.AutoMirrored.Filled.ArrowBack,
@@ -128,7 +128,7 @@ private fun SmdScreenContent(
     ) {
         SmdInductorDisplay(picture, inductor, isError)
         AppTextField(
-            label = stringResource(id = R.string.hint_smd_code),
+            label = stringResource(id = R.string.smd_hint_code),
             modifier = Modifier.padding(top = 32.dp),
             value = code,
             reset = reset.value,
@@ -145,7 +145,7 @@ private fun SmdScreenContent(
             onValueChanged(code.value, inductor.tolerance, false)
         }
         AppDropDownMenu(
-            label = stringResource(id = R.string.hint_band_4),
+            label = stringResource(id = R.string.ctv_hint_band_4),
             modifier = Modifier.padding(top = 12.dp),
             selectedOption = inductor.tolerance,
             items = SmdTolerance.getLetterList(),
@@ -155,14 +155,14 @@ private fun SmdScreenContent(
         AppDivider(modifier = Modifier.padding(vertical = 24.dp))
         Column(horizontalAlignment = Alignment.Start) {
             Text(
-                text = stringResource(R.string.learn_smd_codes_headline),
+                text = stringResource(R.string.smd_learn_codes_headline),
                 modifier = Modifier.padding(bottom = 16.dp),
                 style = textStyleHeadline(),
             )
             AppArrowCardButton(
                 ArrowCardButtonContents(
                     imageVector = Icons.Outlined.Lightbulb,
-                    text = stringResource(R.string.learn_color_codes_button),
+                    text = stringResource(R.string.ctv_learn_color_codes_button),
                     onClick = onLearnSmdCodesTapped,
                 )
             )

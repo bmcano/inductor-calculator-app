@@ -67,7 +67,7 @@ fun InductorLayout(inductor: InductorCtv) {
             ImageColorPair(R.drawable.img_inductor_wire, Colors.INDUCTOR_WIRE),
         )
         val text = if (inductor.isEmpty()) {
-            stringResource(id = R.string.default_ctv_value)
+            stringResource(id = R.string.ctv_default_value)
         } else {
             inductor.formatInductance()
         }
@@ -114,14 +114,14 @@ fun FiveBandInductorInfo(onLearnColorCodesTapped: () -> Unit) {
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.learn_color_codes_headline),
+            text = stringResource(R.string.ctv_learn_color_codes_headline),
             modifier = Modifier.padding(bottom = 16.dp),
             style = textStyleHeadline(),
         )
         AppArrowCardButton(
             ArrowCardButtonContents(
                 imageVector = Icons.Outlined.Lightbulb,
-                text = stringResource(id = R.string.learn_color_codes_headline),
+                text = stringResource(id = R.string.ctv_learn_color_codes_headline),
                 onClick = onLearnColorCodesTapped,
             ),
         )

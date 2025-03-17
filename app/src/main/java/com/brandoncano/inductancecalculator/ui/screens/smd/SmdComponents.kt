@@ -67,7 +67,7 @@ fun SmdInductorLayout(
             )
         }
         val text = when {
-            inductor.isEmpty() -> stringResource(id = R.string.default_smd_value)
+            inductor.isEmpty() -> stringResource(id = R.string.smd_default_value)
             isError -> stringResource(id = R.string.error_na)
             else -> "${inductor.formatInductance()} ${SmdTolerance.getTolerance(inductor.tolerance)}".trimEnd()
         }

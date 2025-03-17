@@ -56,7 +56,7 @@ fun ColorToValueScreen(
     Scaffold(
         topBar = {
             AppMenuTopAppBar(
-                titleText = stringResource(R.string.title_color_to_value),
+                titleText = stringResource(R.string.ctv_title),
                 interactionSource = remember { MutableInteractionSource() },
                 showMenu = openMenu,
                 navigationIcon = Icons.AutoMirrored.Filled.ArrowBack,
@@ -116,7 +116,7 @@ private fun ColorToValueScreenContent(
         InductorDisplay(picture, inductor)
         ImageTextDropDownMenu(
             modifier = Modifier.padding(top = 24.dp),
-            label = R.string.hint_band_1,
+            label = R.string.ctv_hint_band_1,
             selectedOption = inductor.band1,
             items = DropdownLists.NUMBER_LIST_NO_BLACK,
             reset = reset.value,
@@ -124,7 +124,7 @@ private fun ColorToValueScreenContent(
         )
         ImageTextDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.hint_band_2,
+            label = R.string.ctv_hint_band_2,
             selectedOption = inductor.band2,
             items = DropdownLists.NUMBER_LIST,
             reset = reset.value,
@@ -132,7 +132,7 @@ private fun ColorToValueScreenContent(
         )
         ImageTextDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.hint_band_3,
+            label = R.string.ctv_hint_band_3,
             selectedOption = inductor.band3,
             items = DropdownLists.MULTIPLIER_LIST,
             reset = reset.value,
@@ -140,7 +140,7 @@ private fun ColorToValueScreenContent(
         )
         ImageTextDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.hint_band_4,
+            label = R.string.ctv_hint_band_4,
             selectedOption = inductor.band4,
             items = DropdownLists.TOLERANCE_LIST,
             reset = reset.value,

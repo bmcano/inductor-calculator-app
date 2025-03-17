@@ -48,7 +48,7 @@ fun InductorLayout(inductor: InductorVtc, isError: Boolean) {
             ImageColorPair(R.drawable.img_inductor_wire, Colors.INDUCTOR_WIRE),
         )
         val text = when {
-            inductor.isEmpty() -> stringResource(id = R.string.default_vtc_value)
+            inductor.isEmpty() -> stringResource(id = R.string.vtc_default_value)
             isError -> stringResource(id = R.string.error_na)
             else -> inductor.getInductanceValue()
         }

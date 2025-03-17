@@ -155,8 +155,8 @@ private fun CustomDropdownPreview() {
     val list = listOf(item1, item2, item3, item4, item5, item6)
     InductorCalculatorTheme {
         Column {
-            ImageTextDropDownMenu(Modifier, R.string.hint_band_1, "", list) { }
-            ImageTextDropDownMenu(Modifier, R.string.hint_band_1, "Red", list) { }
+            ImageTextDropDownMenu(Modifier, R.string.ctv_hint_band_1, "", list) { }
+            ImageTextDropDownMenu(Modifier, R.string.ctv_hint_band_1, "Red", list) { }
         }
     }
 }

@@ -59,7 +59,7 @@ fun ValueToColorScreen(
     Scaffold(
         topBar = {
             AppMenuTopAppBar(
-                titleText = stringResource(R.string.title_value_to_color),
+                titleText = stringResource(R.string.vtc_title),
                 interactionSource = remember { MutableInteractionSource() },
                 showMenu = openMenu,
                 navigationIcon = Icons.AutoMirrored.Filled.ArrowBack,
@@ -120,7 +120,7 @@ private fun ValueToColorScreenContent(
     ) {
         InductorDisplay(picture, inductor, isError)
         AppTextField(
-            label = stringResource(id = R.string.hint_inductance),
+            label = stringResource(id = R.string.vtc_hint_inductance),
             modifier = Modifier.padding(top = 32.dp),
             value = inductance,
             reset = reset.value,
@@ -131,7 +131,7 @@ private fun ValueToColorScreenContent(
             onValueChanged(inductance.value, inductor.units, inductor.tolerance, false)
         }
         AppDropDownMenu(
-            label = stringResource(id = R.string.hint_units),
+            label = stringResource(id = R.string.vtc_hint_units),
             modifier = Modifier.padding(top = 12.dp),
             selectedOption = inductor.units,
             items = DropdownLists.UNITS_LIST,
@@ -142,7 +142,7 @@ private fun ValueToColorScreenContent(
         )
         ImageTextDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.hint_band_4,
+            label = R.string.ctv_hint_band_4,
             selectedOption = inductor.tolerance,
             items = DropdownLists.TOLERANCE_LIST,
             reset = reset.value,
