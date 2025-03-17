@@ -30,7 +30,6 @@ import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 import com.brandoncano.sharedcomponents.composables.AppTopAppBar
 import com.brandoncano.sharedcomponents.text.onSurfaceVariant
 import com.brandoncano.sharedcomponents.text.textStyleBody
-import com.brandoncano.sharedcomponents.text.textStyleLargeTitle
 import com.brandoncano.sharedcomponents.text.textStyleTitle
 
 @Composable
@@ -64,7 +63,7 @@ private fun LearnColorCodesScreenContent(paddingValues: PaddingValues) {
         Text(
             text = stringResource(R.string.learn_intro_title),
             modifier = Modifier.padding(vertical = 12.dp),
-            style = textStyleLargeTitle(),
+            style = textStyleTitle(),
         )
         Text(
             text = stringResource(R.string.learn_color_intro_body),
@@ -75,7 +74,7 @@ private fun LearnColorCodesScreenContent(paddingValues: PaddingValues) {
         Text(
             text = stringResource(R.string.learn_color_meaning_title),
             modifier = Modifier.padding(bottom = 12.dp),
-            style = textStyleLargeTitle(),
+            style = textStyleTitle(),
         )
         Text(
             text = stringResource(R.string.learn_color_meaning_body),
