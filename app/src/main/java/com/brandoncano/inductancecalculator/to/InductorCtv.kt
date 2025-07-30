@@ -1,11 +1,13 @@
-package com.brandoncano.inductancecalculator.model.ctv
+package com.brandoncano.inductancecalculator.to
+
+import java.io.Serializable
 
 data class InductorCtv(
     var band1: String = "",
     var band2: String = "",
     var band3: String = "",
     var band4: String = "",
-) {
+) : Serializable {
     fun isEmpty(): Boolean {
         return band1.isEmpty() || band2.isEmpty() || band4.isEmpty()
     }

@@ -1,35 +1,38 @@
 package com.brandoncano.inductancecalculator.navigation
 
-import android.content.Context
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.brandoncano.inductancecalculator.constants.Links
-import com.brandoncano.inductancecalculator.ui.screens.about.AboutScreen
-import com.brandoncano.sharedcomponents.utils.OpenLink
+import com.brandoncano.inductancecalculator.firebase.FirebaseRemoteConfigKeys
+import com.brandoncano.inductancecalculator.firebase.getStringOrEmpty
+import com.brandoncano.inductancecalculator.ui.screens.AboutScreen
+import com.brandoncano.resistancecalculator.util.OpenLink
 
 fun NavGraphBuilder.aboutScreen(
     navHostController: NavHostController,
 ) {
     composable(
         route = Screen.About.route,
-        enterTransition = { slideInVertically(initialOffsetY = { it }) },
-        exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+        enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+        exitTransition = { ExitTransition.None },
+        popEnterTransition = { EnterTransition.None },
+        popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
     ) {
         val context = LocalContext.current
+        val privacyPolicyLink = FirebaseRemoteConfigKeys.PRIVACY_POLICY.getStringOrEmpty()
         AboutScreen(
             onNavigateBack = { navHostController.popBackStack() },
-            onViewPrivacyPolicyTapped = { navigateToPrivacyPolicy(context) },
+            onViewPrivacyPolicyTapped = { OpenLink.execute(context, privacyPolicyLink) },
+            onViewColorCodeIecTapped = { navigateToLearnColorCodes(navHostController) },
+            onViewSmdCodeIecTapped = { navigateToLearnSmdCodes(navHostController) },
             onRateThisAppTapped = { navigateToGooglePlay(context) },
             onViewOurAppsTapped = { navigateToOurApps(navHostController) },
             onDonateTapped = { navigateToDonate(navHostController) },
         )
     }
-}
-
-private fun navigateToPrivacyPolicy(context: Context) {
-    OpenLink.execute(context, Links.PRIVACY_POLICY)
 }

@@ -1,7 +1,7 @@
 package com.brandoncano.inductancecalculator.util
 
 import com.brandoncano.inductancecalculator.data.SmdTolerance
-import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
+import com.brandoncano.inductancecalculator.to.InductorCtv
 import com.brandoncano.inductancecalculator.model.smd.InductorSmd
 import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
 

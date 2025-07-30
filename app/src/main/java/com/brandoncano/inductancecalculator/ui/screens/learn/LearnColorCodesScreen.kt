@@ -23,7 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Colors
-import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
+import com.brandoncano.inductancecalculator.to.InductorCtv
 import com.brandoncano.inductancecalculator.ui.screens.ctv.InductorLayout
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.sharedcomponents.composables.AppScreenPreviews

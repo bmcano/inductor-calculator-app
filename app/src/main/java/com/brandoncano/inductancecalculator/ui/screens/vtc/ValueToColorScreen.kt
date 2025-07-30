@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Links
-import com.brandoncano.inductancecalculator.data.DropdownLists
+import com.brandoncano.inductancecalculator.constants.Lists
 import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
 import com.brandoncano.inductancecalculator.ui.composables.ImageTextDropDownMenu
 import com.brandoncano.inductancecalculator.ui.screens.ctv.FiveBandInductorInfo
@@ -134,7 +134,7 @@ private fun ValueToColorScreenContent(
             label = stringResource(id = R.string.vtc_hint_units),
             modifier = Modifier.padding(top = 12.dp),
             selectedOption = inductor.units,
-            items = DropdownLists.UNITS_LIST,
+            items = Lists.UNITS,
             reset = reset.value,
             onOptionSelected = {
                 onValueChanged(inductance.value, it, inductor.tolerance, true)
@@ -144,7 +144,7 @@ private fun ValueToColorScreenContent(
             modifier = Modifier.padding(top = 12.dp),
             label = R.string.ctv_hint_band_4,
             selectedOption = inductor.tolerance,
-            items = DropdownLists.TOLERANCE_LIST,
+            items = Lists.INDUCTOR_TOLERANCES,
             reset = reset.value,
             isValueToColor = true,
             onOptionSelected = {

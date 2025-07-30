@@ -1,7 +1,5 @@
 package com.brandoncano.inductancecalculator.ui.screens.ctv
 
-import android.graphics.Picture
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -13,80 +11,86 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Scaffold
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
-import com.brandoncano.inductancecalculator.constants.Links
-import com.brandoncano.inductancecalculator.data.DropdownLists
-import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
+import com.brandoncano.inductancecalculator.constants.Lists
+import com.brandoncano.inductancecalculator.to.InductorCtv
+import com.brandoncano.inductancecalculator.ui.composables.ClearSelectionsMenuItem
 import com.brandoncano.inductancecalculator.ui.composables.ImageTextDropDownMenu
+import com.brandoncano.inductancecalculator.ui.composables.MenuIconButton
+import com.brandoncano.inductancecalculator.ui.composables.m3.M3Scaffold
+import com.brandoncano.inductancecalculator.ui.composables.m3.M3TopAppBar
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
-import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.shareableText
-import com.brandoncano.sharedcomponents.composables.AboutAppMenuItem
-import com.brandoncano.sharedcomponents.composables.AppDivider
-import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
-import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
-import com.brandoncano.sharedcomponents.composables.ClearSelectionsMenuItem
-import com.brandoncano.sharedcomponents.composables.FeedbackMenuItem
-import com.brandoncano.sharedcomponents.composables.ShareImageMenuItem
-import com.brandoncano.sharedcomponents.composables.ShareTextMenuItem
 
+@OptIn(ExperimentalMaterial3Api::class) // For TopAppBar
 @Composable
 fun ColorToValueScreen(
-    openMenu: MutableState<Boolean>,
-    reset: MutableState<Boolean>,
     inductor: InductorCtv,
     onNavigateBack: () -> Unit,
+    onShareImageTapped: (@Composable (() -> Unit)) -> Unit,
+    onShareTextTapped: (String) -> Unit,
     onClearSelectionsTapped: () -> Unit,
+    onFeedbackTapped: () -> Unit,
     onAboutTapped: () -> Unit,
     onUpdateBand: (Int, String) -> Unit,
     onLearnColorCodesTapped: () -> Unit,
 ) {
-    val picture = remember { Picture() }
-    Scaffold(
+    var showMenu by remember { mutableStateOf(false) }
+    M3Scaffold(
         topBar = {
-            AppMenuTopAppBar(
+            M3TopAppBar(
                 titleText = stringResource(R.string.ctv_title),
-                interactionSource = remember { MutableInteractionSource() },
-                showMenu = openMenu,
-                navigationIcon = Icons.AutoMirrored.Filled.ArrowBack,
+                navigationIcon = Icons.Filled.Close,
                 onNavigateBack = onNavigateBack,
-            ) {
-                ClearSelectionsMenuItem(onClearSelectionsTapped)
-                ShareTextMenuItem(
-                    text = inductor.shareableText(),
-                    showMenu = openMenu,
-                )
-                if (Sdk.isAtLeastAndroid7()) {
-                    ShareImageMenuItem(
-                        applicationId = Links.APPLICATION_ID,
-                        showMenu = openMenu,
-                        picture = picture,
-                    )
-                }
-                FeedbackMenuItem(
-                    app = Links.APP_NAME,
-                    showMenu = openMenu,
-                )
-                AboutAppMenuItem(onAboutTapped)
-            }
+                actions = {
+                    MenuIconButton { showMenu = true }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false },
+                    ) {
+                        ClearSelectionsMenuItem {
+                            onClearSelectionsTapped.invoke()
+                            showMenu = false
+                        }
+                        ShareTextMenuItem {
+                            onShareTextTapped.invoke(inductor.shareableText())
+                            showMenu = false
+                        }
+                        ShareImageMenuItem {
+                            onShareImageTapped.invoke {
+                                InductorLayout(inductor, 32.dp)
+                            }
+                            showMenu = false
+                        }
+                        FeedbackMenuItem {
+                            onFeedbackTapped.invoke()
+                            showMenu = false
+                        }
+                        AboutAppMenuItem {
+                            onAboutTapped.invoke()
+                            showMenu = false
+                        }
+                    }
+                },
+                scrollBehavior = it,
         },
-        contentWindowInsets = WindowInsets.safeDrawing,
     ) { paddingValues ->
         ColorToValueScreenContent(
             paddingValues = paddingValues,
-            picture = picture,
-            reset = reset,
             inductor = inductor,
             onUpdateBand = onUpdateBand,
             onLearnColorCodesTapped = onLearnColorCodesTapped,
@@ -97,8 +101,6 @@ fun ColorToValueScreen(
 @Composable
 private fun ColorToValueScreenContent(
     paddingValues: PaddingValues,
-    picture: Picture,
-    reset: MutableState<Boolean>,
     inductor: InductorCtv,
     onUpdateBand: (Int, String) -> Unit,
     onLearnColorCodesTapped: () -> Unit,
@@ -118,7 +120,7 @@ private fun ColorToValueScreenContent(
             modifier = Modifier.padding(top = 24.dp),
             label = R.string.ctv_hint_band_1,
             selectedOption = inductor.band1,
-            items = DropdownLists.NUMBER_LIST_NO_BLACK,
+            items = Lists.INDUCTOR_SIG_FIGS_NO_BLACK,
             reset = reset.value,
             onOptionSelected = { onUpdateBand(1, it) },
         )
@@ -126,7 +128,7 @@ private fun ColorToValueScreenContent(
             modifier = Modifier.padding(top = 12.dp),
             label = R.string.ctv_hint_band_2,
             selectedOption = inductor.band2,
-            items = DropdownLists.NUMBER_LIST,
+            items = Lists.INDUCTOR_SIG_FIGS,
             reset = reset.value,
             onOptionSelected = { onUpdateBand(2, it) },
         )
@@ -134,7 +136,7 @@ private fun ColorToValueScreenContent(
             modifier = Modifier.padding(top = 12.dp),
             label = R.string.ctv_hint_band_3,
             selectedOption = inductor.band3,
-            items = DropdownLists.MULTIPLIER_LIST,
+            items = Lists.INDUCTOR_MULTIPLIERS,
             reset = reset.value,
             onOptionSelected = { onUpdateBand(3, it) },
         )
@@ -142,13 +144,34 @@ private fun ColorToValueScreenContent(
             modifier = Modifier.padding(top = 12.dp),
             label = R.string.ctv_hint_band_4,
             selectedOption = inductor.band4,
-            items = DropdownLists.TOLERANCE_LIST,
+            items = Lists.INDUCTOR_TOLERANCES,
             reset = reset.value,
             onOptionSelected = { onUpdateBand(4, it) },
         )
         AppDivider(modifier = Modifier.padding(vertical = 24.dp))
         FiveBandInductorInfo(onLearnColorCodesTapped)
         Spacer(modifier = Modifier.height(48.dp))
+    }
+}
+
+@Composable
+private fun InductorLayout(inductor: InductorCtv, verticalPadding: Dp = 0.dp) {
+    val imageColorPairs = remember(inductor) {
+        ResistorImageBuilder.execute(inductor)
+    }
+    Column(
+        modifier = Modifier.padding(horizontal = 0.dp, vertical = verticalPadding),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        ResistorRow(imageColorPairs)
+        Spacer(modifier = Modifier.height(16.dp))
+        M3DisplayCard(
+            text = if (inductor.isEmpty()) {
+                stringResource(id = R.string.ctv_default_value)
+            } else {
+                inductor.formatResistance()
+            },
+        )
     }
 }
 

@@ -21,18 +21,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.inductancecalculator.R
 import com.brandoncano.inductancecalculator.constants.Colors
-import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
+import com.brandoncano.inductancecalculator.to.InductorCtv
 import com.brandoncano.inductancecalculator.ui.theme.InductorCalculatorTheme
 import com.brandoncano.inductancecalculator.util.ColorFinder
 import com.brandoncano.inductancecalculator.util.Sdk
 import com.brandoncano.inductancecalculator.util.formatInductance
-import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
-import com.brandoncano.sharedcomponents.composables.AppCard
-import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
-import com.brandoncano.sharedcomponents.composables.DrawContent
-import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
-import com.brandoncano.sharedcomponents.text.textStyleHeadline
-import com.brandoncano.sharedcomponents.text.textStyleTitle
 
 data class ImageColorPair(@DrawableRes val drawableRes: Int, val color: String)
 

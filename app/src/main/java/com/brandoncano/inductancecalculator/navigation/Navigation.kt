@@ -1,28 +1,30 @@
 package com.brandoncano.inductancecalculator.navigation
 
 import android.content.Context
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.brandoncano.inductancecalculator.constants.Links
+import com.brandoncano.inductancecalculator.firebase.FirebaseRemoteConfigKeys
+import com.brandoncano.inductancecalculator.firebase.getStringOrEmpty
 import com.brandoncano.inductancecalculator.navigation.calculators.colorToValueScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.smdScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.valueToColorScreen
 import com.brandoncano.inductancecalculator.navigation.learn.learnColorCodes
 import com.brandoncano.inductancecalculator.navigation.learn.learnSmdCodes
-import com.brandoncano.sharedcomponents.data.Apps
-import com.brandoncano.sharedcomponents.navigation.SharedScreens
-import com.brandoncano.sharedcomponents.navigation.donateScreen
-import com.brandoncano.sharedcomponents.navigation.viewOurAppsScreen
-import com.brandoncano.sharedcomponents.utils.OpenLink
+import com.brandoncano.resistancecalculator.util.OpenLink
 
 /**
  * Note: Keep each navigation route in alphabetical order
+ *
+ * TODO - Convert to Nav3 when it is ready and stable
  */
 
+private const val TAG = "Navigation"
+
 @Composable
-fun Navigation(onOpenThemeDialog: () -> Unit) {
+fun Navigation(onOpenAppThemeDialog: () -> Unit) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -30,14 +32,21 @@ fun Navigation(onOpenThemeDialog: () -> Unit) {
     ) {
         aboutScreen(navController)
         colorToValueScreen(navController)
-        homeScreen(navController, onOpenThemeDialog)
+        donateScreen(navController)
+        homeScreen(navController, onOpenAppThemeDialog)
         learnColorCodes(navController)
         learnSmdCodes(navController)
         smdScreen(navController)
         valueToColorScreen(navController)
-        // from shared library
-        donateScreen(navController)
-        viewOurAppsScreen(navController, Apps.Inductor)
+        viewOurAppsScreen(navController)
+    }
+}
+
+fun popBackStackSafely(navController: NavHostController) {
+    if (navController.previousBackStackEntry != null) {
+        navController.popBackStack()
+    } else {
+        Log.e(TAG, "Attempted navController.popBackStack(), but no BackStackEntry exists.")
     }
 }
 
@@ -72,13 +81,14 @@ fun navigateToLearnSmdCodes(navController: NavHostController) {
 }
 
 fun navigateToOurApps(navController: NavHostController) {
-    navController.navigate(SharedScreens.ViewOurApps.route)
+    navController.navigate(Screen.ViewOurApps.route)
 }
 
 fun navigateToDonate(navController: NavHostController) {
-    navController.navigate(SharedScreens.Donate.route)
+    navController.navigate(Screen.Donate.route)
 }
 
 fun navigateToGooglePlay(context: Context) {
-    OpenLink.execute(context, Links.INDUCTOR_PLAYSTORE)
+    val playstoreInductorLink = FirebaseRemoteConfigKeys.PLAYSTORE_INDUCTOR.getStringOrEmpty()
+    OpenLink.execute(context, playstoreInductorLink)
 }

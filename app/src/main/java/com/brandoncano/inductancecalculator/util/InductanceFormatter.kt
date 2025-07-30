@@ -2,7 +2,7 @@ package com.brandoncano.inductancecalculator.util
 
 import com.brandoncano.inductancecalculator.constants.Colors
 import com.brandoncano.inductancecalculator.constants.Symbols
-import com.brandoncano.inductancecalculator.model.ctv.InductorCtv
+import com.brandoncano.inductancecalculator.to.InductorCtv
 
 object InductanceFormatter {
 

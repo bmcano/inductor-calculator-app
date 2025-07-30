@@ -1,7 +1,6 @@
 package com.brandoncano.inductancecalculator.model.smd
 
 import android.content.Context
-import com.brandoncano.inductancecalculator.data.SharedPreferences
 
 class InductorSmdRepository(context: Context) {
 

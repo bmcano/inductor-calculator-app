@@ -1,15 +1,15 @@
-package com.brandoncano.inductancecalculator.data
+package com.brandoncano.inductancecalculator.constants
 
-import com.brandoncano.inductancecalculator.constants.Colors
-import com.brandoncano.inductancecalculator.constants.Symbols
-
+import com.brandoncano.inductancecalculator.data.DropdownItem
 
 /**
  * Job: Holds the list of items for each dropdown
  */
-object DropdownLists {
+object Lists {
 
-    val NUMBER_LIST = listOf(
+    val UNITS = listOf(Symbols.UH, Symbols.MH)
+
+    val INDUCTOR_SIG_FIGS = listOf(
         DropdownItem(Colors.BLACK, "0"),
         DropdownItem(Colors.BROWN, "1"),
         DropdownItem(Colors.RED, "2"),
@@ -22,9 +22,9 @@ object DropdownLists {
         DropdownItem(Colors.WHITE, "9"),
     )
 
-    val NUMBER_LIST_NO_BLACK = NUMBER_LIST.drop(1)
+    val INDUCTOR_SIG_FIGS_NO_BLACK = INDUCTOR_SIG_FIGS.drop(1)
 
-    val MULTIPLIER_LIST = listOf(
+    val INDUCTOR_MULTIPLIERS = listOf(
         DropdownItem(Colors.BLACK, "x 1"),
         DropdownItem(Colors.BROWN, "x 10"),
         DropdownItem(Colors.RED, "x 100"),
@@ -34,7 +34,7 @@ object DropdownLists {
         DropdownItem(Colors.SILVER, "x 0.01"),
     )
 
-    val TOLERANCE_LIST = listOf(
+    val INDUCTOR_TOLERANCES = listOf(
         DropdownItem(Colors.BLACK, "${Symbols.PM}20%"),
         DropdownItem(Colors.BROWN, "${Symbols.PM}1%"),
         DropdownItem(Colors.RED, "${Symbols.PM}2%"),
@@ -43,6 +43,4 @@ object DropdownLists {
         DropdownItem(Colors.GOLD, "${Symbols.PM}5%"),
         DropdownItem(Colors.SILVER, "${Symbols.PM}10%"),
     )
-
-    val UNITS_LIST = listOf(Symbols.UH, Symbols.MH)
 }

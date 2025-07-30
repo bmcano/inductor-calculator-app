@@ -12,7 +12,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.brandoncano.inductancecalculator.model.InductorViewModelFactory
 import com.brandoncano.inductancecalculator.model.vtc.InductorVtcViewModel
 import com.brandoncano.inductancecalculator.navigation.Screen
 import com.brandoncano.inductancecalculator.navigation.navigateToAbout

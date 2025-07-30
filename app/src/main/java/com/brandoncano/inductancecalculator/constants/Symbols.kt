@@ -9,4 +9,5 @@ object Symbols {
     const val MH = "mH"
     const val PM = "±"
     const val X = "×"
+    const val BULLET = "•"
 }
