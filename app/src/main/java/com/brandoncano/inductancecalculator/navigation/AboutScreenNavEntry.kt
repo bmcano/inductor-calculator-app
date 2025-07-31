@@ -11,7 +11,7 @@ import androidx.navigation.compose.composable
 import com.brandoncano.inductancecalculator.firebase.FirebaseRemoteConfigKeys
 import com.brandoncano.inductancecalculator.firebase.getStringOrEmpty
 import com.brandoncano.inductancecalculator.ui.screens.AboutScreen
-import com.brandoncano.resistancecalculator.util.OpenLink
+import com.brandoncano.inductancecalculator.util.OpenLink
 
 fun NavGraphBuilder.aboutScreen(
     navHostController: NavHostController,

@@ -1,9 +1,9 @@
-package com.brandoncano.resistancecalculator.util
+package com.brandoncano.inductancecalculator.util
 
 import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
-import com.brandoncano.resistancecalculator.R
+import com.brandoncano.inductancecalculator.R
 
 /**
  * Job: Open a web link based on a given URL

@@ -1,14 +1,14 @@
 package com.brandoncano.inductancecalculator.util
 
 import com.brandoncano.inductancecalculator.constants.Symbols
-import com.brandoncano.inductancecalculator.model.smd.InductorSmd
+import com.brandoncano.inductancecalculator.to.SmdInductor
 
 /**
  * Job: Format the inductance text depending on the mode and code
  */
 object InductanceSmdFormatter {
 
-    fun execute(inductor: InductorSmd): String {
+    fun execute(inductor: SmdInductor): String {
         if (inductor.isEmpty()) return "Enter code" // we need this for sharing as text
         val code = inductor.code
         return threeDigit(code)

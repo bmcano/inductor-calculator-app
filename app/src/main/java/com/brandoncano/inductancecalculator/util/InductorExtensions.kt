@@ -2,8 +2,8 @@ package com.brandoncano.inductancecalculator.util
 
 import com.brandoncano.inductancecalculator.data.SmdTolerance
 import com.brandoncano.inductancecalculator.to.InductorCtv
-import com.brandoncano.inductancecalculator.model.smd.InductorSmd
-import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
+import com.brandoncano.inductancecalculator.to.SmdInductor
+import com.brandoncano.inductancecalculator.to.InductorVtc
 
 fun InductorCtv.formatInductance(): String {
     return InductanceFormatter.execute(this)
@@ -30,14 +30,14 @@ fun String.adjustValueForSharing(): String {
     return ColorFinder.colorToColorText(color)
 }
 
-fun InductorSmd.isSmdInputInvalid(): Boolean {
+fun SmdInductor.isSmdInputInvalid(): Boolean {
     return !IsValidSmdCode.execute(this.code)
 }
 
-fun InductorSmd.formatInductance(): String {
+fun SmdInductor.formatInductance(): String {
     return InductanceSmdFormatter.execute(this)
 }
 
-fun InductorSmd.formatTolerance(): String {
+fun SmdInductor.formatTolerance(): String {
     return SmdTolerance.getTolerance(this.tolerance)
 }

@@ -2,7 +2,7 @@ package com.brandoncano.inductancecalculator.util
 
 import com.brandoncano.inductancecalculator.constants.Colors as C
 import com.brandoncano.inductancecalculator.constants.Symbols
-import com.brandoncano.inductancecalculator.model.vtc.InductorVtc
+import com.brandoncano.inductancecalculator.to.InductorVtc
 import java.util.Locale
 
 /**

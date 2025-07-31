@@ -7,7 +7,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.brandoncano.inductancecalculator.ui.screens.HomeScreen
-import com.brandoncano.resistancecalculator.util.SendFeedback
+import com.brandoncano.inductancecalculator.util.SendFeedback
 
 fun NavGraphBuilder.homeScreen(
     navHostController: NavHostController,

@@ -28,8 +28,8 @@ enum class SmdTolerance(val letter: String, val tolerance: String) {
             return entries.find { it.letter == letter }?.tolerance ?: ""
         }
 
-        fun getTolerancePairs():  List<Pair<String, String>> {
-            return entries.map { it.letter to it.tolerance }
+        fun getTolerancePairs():  List<List<String>> {
+            return entries.map { listOf(it.letter, it.tolerance) }
         }
     }
 }

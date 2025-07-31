@@ -7,17 +7,19 @@ import androidx.core.content.edit
 import com.brandoncano.inductancecalculator.keys.AppAppearance
 import com.brandoncano.inductancecalculator.keys.SharedPreferencesKey
 import com.brandoncano.inductancecalculator.to.InductorCtv
+import com.brandoncano.inductancecalculator.to.InductorVtc
+import com.brandoncano.inductancecalculator.to.SmdInductor
 import com.brandoncano.inductancecalculator.ui.MainApplication
 import com.google.gson.Gson
 
 /**
  * Notes:
- * + Device File Explorer: `/data/data/com.brandoncano.resistancecalculator/shared_prefs/ResistorSharedPrefs.xml`
+ * + Device File Explorer: `/data/data/com.brandoncano.inductancecalculator/shared_prefs/InductorSharedPrefs.xml`
  */
-class SharedPreferencesAdapter {
+class SharedPreferencesAdapter() {
 
     private companion object {
-        const val NAME = "ResistorSharedPrefs"
+        const val NAME = "InductorSharedPrefs"
     }
 
     fun getResetPreferences(): Boolean {
@@ -54,6 +56,26 @@ class SharedPreferencesAdapter {
     fun setInductorCtvPreference(inductor: InductorCtv) {
         val inductorString = Gson().toJson(inductor, InductorCtv::class.java)
         setString(SharedPreferencesKey.KEY_COLOR_TO_VALUE, inductorString)
+    }
+
+    fun getInductorVtcPreference(): InductorVtc {
+        val inductor = getString(SharedPreferencesKey.KEY_VALUE_TO_COLOR, null)
+        return inductor.fromJsonStringToTypeOrNull() ?: InductorVtc()
+    }
+
+    fun setInductorVtcPreference(inductor: InductorVtc) {
+        val inductorString = Gson().toJson(inductor, InductorVtc::class.java)
+        setString(SharedPreferencesKey.KEY_VALUE_TO_COLOR, inductorString)
+    }
+
+    fun getSmdInductorPreference(): SmdInductor {
+        val inductor = getString(SharedPreferencesKey.KEY_SMD_INDUCTOR, null)
+        return inductor.fromJsonStringToTypeOrNull() ?: SmdInductor()
+    }
+
+    fun setSmdInductorPreference(inductor: SmdInductor) {
+        val inductorString = Gson().toJson(inductor, SmdInductor::class.java)
+        setString(SharedPreferencesKey.KEY_SMD_INDUCTOR, inductorString)
     }
 
     fun removeSharedPreference(sharedPreferencesKey: SharedPreferencesKey) {

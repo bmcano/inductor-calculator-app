@@ -24,7 +24,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val sharedPreferencesAdapter = SharedPreferencesAdapter()
-
             val appAppearanceState = remember { mutableStateOf(AppAppearance.SYSTEM_DEFAULT) }
             val dynamicColorState = remember { mutableStateOf(false) }
             var showAppThemeDialog by remember { mutableStateOf(false) }

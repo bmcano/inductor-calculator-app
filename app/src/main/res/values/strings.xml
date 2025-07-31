@@ -25,17 +25,19 @@
     <string name="about_overview_body_02">This app follows the IEC 60062 international standard for inductor coding and calculations to help ensure accuracy.</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
 
-    <!-- ctv screen -->
+    <!-- ctv/vtc screen -->
     <string name="ctv_title">Color to Value</string>
     <string name="ctv_default_value">Select colors</string>
     <string name="ctv_hint_band_1">First band</string>
     <string name="ctv_hint_band_2">Second band</string>
     <string name="ctv_hint_band_3">Multiplier</string>
     <string name="ctv_hint_band_4">Tolerance</string>
+    <string name="ctv_info_card_title_text">Inductor color codes</string>
+    <string name="ctv_info_card_subhead_text">IEC 60062</string>
+    <string name="ctv_info_card_body_text">Use the color code chart to translate each band into its exact inductance value.</string>
+    <string name="ctv_info_card_cta_text">Learn more</string>
     <string name="ctv_learn_color_codes_headline">Learn about color codes</string>
     <string name="ctv_learn_color_codes_button">Explore the IEC 60062 standard</string>
-
-    <!-- value to color screen   -->
     <string name="vtc_title">Value to Color</string>
     <string name="vtc_default_value">Enter inductance</string>
     <string name="vtc_hint_inductance">Inductance</string>
@@ -45,24 +47,33 @@
     <string name="smd_title">SMD Inductor</string>
     <string name="smd_default_value">Enter code</string>
     <string name="smd_hint_code">Code</string>
-    <string name="smd_learn_codes_headline">Learn about SMD codes</string>
+    <string name="smd_info_card_title_text">SMD inductor codes</string>
+    <string name="smd_info_card_subhead_text">IEC 60062</string>
+    <string name="smd_info_card_body_text">Learn how  markings on SMD inductors correspond to inductance and tolerance.</string>
+    <string name="smd_info_card_cta_text">Learn more</string>
 
     <!-- color code info screen -->
-    <string name="learn_title">IEC 60062 Standard</string>
-    <string name="learn_intro_title">Introduction</string>
-    <string name="learn_color_intro_body">The inductor color code uses colored bands to indicate inductance values and tolerance. This system allows for easy identification of inductor values in a compact format.</string>
+    <string name="info_color_title">Inductor Color Bands</string>
+    <string name="info_color">Color</string>
+    <string name="info_digit">Digit</string>
+    <string name="info_multiplier">Multiplier</string>
+    <string name="info_tolerance">Tolerance</string>
+    <string name="info_color_body1">The inductor color code uses colored bands to indicate inductance values and tolerance. This system allows for easy identification of inductor values in a compact format.</string>
+    <string name="info_color_body2">Each color corresponds to a specific value, depending on its position on the inductor body. The standard colors and their corresponding values are displayed in the table below.</string>
     <string name="learn_color_meaning_title">Color Bands and Their Meanings</string>
     <string name="learn_color_meaning_body">Each color corresponds to a specific value, depending on its position on the inductor. The standard colors and their corresponding values are displayed in the table below.</string>
-    <string name="learn_color_code_explanation">Explanation:</string>
     <string name="learn_color_four_band_headline">Four-Band Inductors</string>
     <string name="learn_color_four_band_body">Four-band inductors have two significant figure bands, one multiplier band, and one tolerance band.</string>
+    <string name="info_color_code_calculation">Calculation:</string>
+    <string name="info_color_code_band_breakdown">Band breakdown:</string>
     <string name="learn_color_four_band_code">47 \u00D7 100 ±5%</string>
-    <string name="learn_color_four_band_description">Yellow (4), Violet (7), Red (×100), Gold (±5%)</string>
+    <string name="learn_color_four_band_description">Yellow[4], Violet[7], Red[×100], Gold[±5%]</string>
     <string name="learn_color_five_band_headline">Five-Band Inductors</string>
     <string name="learn_color_five_band_body">Some inductors have five bands. If the first band is a double-length silver band, it indicates that the inductor uses military standards. Please note that this app does not support five-band inductors.</string>
-    <string name="learn_disclaimer_footer">The information provided here regarding IEC standards is intended for general guidance. Please note that not all components may strictly adhere to these standards, as manufacturers may have variations or different interpretations. Always consult the specific datasheet or contact the manufacturer directly if you are unsure about the specifications or standards for a particular component.</string>
+    <string name="info_disclaimer_footer">The information provided here regarding IEC standards is intended for general guidance. Please note that not all components may strictly adhere to these standards, as manufacturers may have variations or different interpretations. Always consult the specific datasheet or contact the manufacturer directly if you are unsure about the specifications or standards for a particular component.</string>
 
     <!-- smd info screen   -->
+    <string name="info_smd_title">SMD Inductor Codes</string>
     <string name="smd_info_intro_title">Introduction</string>
     <string name="smd_info_intro_body">The IEC 60062 standard defines alphanumeric markings for inductors, allowing manufacturers to label inductance values in a compact format. This is ideal for smaller components like SMD (Surface-Mount Device) inductors.</string>
     <string name="smd_info_code_title">SMD Inductor Codes</string>

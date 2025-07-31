@@ -38,7 +38,7 @@ class MainApplication : Application() {
         with(sharedPreferencesAdapter) {
             removeSharedPreference(SharedPreferencesKey.KEY_COLOR_TO_VALUE)
             removeSharedPreference(SharedPreferencesKey.KEY_VALUE_TO_COLOR)
-            removeSharedPreference(SharedPreferencesKey.KEY_SMD_RESISTOR)
+            removeSharedPreference(SharedPreferencesKey.KEY_SMD_INDUCTOR)
             setResetPreferences()
         }
     }

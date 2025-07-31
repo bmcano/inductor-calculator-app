@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.brandoncano.inductancecalculator.adapter.SharedPreferencesAdapter
 import com.brandoncano.inductancecalculator.to.InductorCtv
+import com.brandoncano.inductancecalculator.ui.MainApplication
 
 class InductorCtvViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
 

@@ -13,7 +13,7 @@ import com.brandoncano.inductancecalculator.navigation.calculators.smdScreen
 import com.brandoncano.inductancecalculator.navigation.calculators.valueToColorScreen
 import com.brandoncano.inductancecalculator.navigation.learn.learnColorCodes
 import com.brandoncano.inductancecalculator.navigation.learn.learnSmdCodes
-import com.brandoncano.resistancecalculator.util.OpenLink
+import com.brandoncano.inductancecalculator.util.OpenLink
 
 /**
  * Note: Keep each navigation route in alphabetical order
@@ -32,13 +32,13 @@ fun Navigation(onOpenAppThemeDialog: () -> Unit) {
     ) {
         aboutScreen(navController)
         colorToValueScreen(navController)
-        donateScreen(navController)
+        //donateScreen(navController)
         homeScreen(navController, onOpenAppThemeDialog)
         learnColorCodes(navController)
         learnSmdCodes(navController)
         smdScreen(navController)
         valueToColorScreen(navController)
-        viewOurAppsScreen(navController)
+        //viewOurAppsScreen(navController)
     }
 }
 

@@ -1,12 +1,13 @@
-package com.brandoncano.inductancecalculator.model.smd
+package com.brandoncano.inductancecalculator.to
 
 import com.brandoncano.inductancecalculator.util.formatInductance
 import com.brandoncano.inductancecalculator.util.formatTolerance
+import java.io.Serializable
 
-data class InductorSmd(
+data class SmdInductor(
     var code: String = "",
     var tolerance: String = "",
-) {
+) : Serializable {
     fun isEmpty(): Boolean {
         return code.length < 3
     }

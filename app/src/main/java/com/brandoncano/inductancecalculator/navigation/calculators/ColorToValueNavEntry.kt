@@ -19,10 +19,10 @@ import com.brandoncano.inductancecalculator.navigation.Screen
 import com.brandoncano.inductancecalculator.navigation.navigateToAbout
 import com.brandoncano.inductancecalculator.navigation.navigateToLearnColorCodes
 import com.brandoncano.inductancecalculator.navigation.popBackStackSafely
-import com.brandoncano.inductancecalculator.ui.screens.ctv.ColorToValueScreen
-import com.brandoncano.resistancecalculator.util.SendFeedback
-import com.brandoncano.resistancecalculator.util.share.ShareResistor
-import com.brandoncano.resistancecalculator.util.share.ShareText
+import com.brandoncano.inductancecalculator.ui.screens.calculators.ColorToValueScreen
+import com.brandoncano.inductancecalculator.util.SendFeedback
+import com.brandoncano.inductancecalculator.util.share.ShareInductor
+import com.brandoncano.inductancecalculator.util.share.ShareText
 
 fun NavGraphBuilder.colorToValueScreen(
     navHostController: NavHostController,
@@ -49,7 +49,7 @@ fun NavGraphBuilder.colorToValueScreen(
             },
             onShareImageTapped = {
                 if (activity != null) {
-                    ShareResistor.execute(
+                    ShareInductor.execute(
                         activity = activity,
                         context = context,
                         applicationId = BuildConfig.APPLICATION_ID,

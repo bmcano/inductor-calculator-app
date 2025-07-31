@@ -1,4 +1,4 @@
-package com.brandoncano.resistancecalculator.util.share
+package com.brandoncano.inductancecalculator.util.share
 
 import android.app.Activity
 import android.content.Context
@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 /**
  * Job: Combines all aspects of the sharing logic together to share a composable as a JPG.
  */
-object ShareResistor {
+object ShareInductor {
 
     fun execute(
         activity: Activity,

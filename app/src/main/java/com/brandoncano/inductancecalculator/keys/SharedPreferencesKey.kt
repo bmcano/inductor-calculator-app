@@ -14,5 +14,5 @@ enum class SharedPreferencesKey(val key: String) {
     // Calculator data
     KEY_COLOR_TO_VALUE("com.brandoncano.inductancecalculator.color.to.value"),
     KEY_VALUE_TO_COLOR("com.brandoncano.inductancecalculator.value.to.color"),
-    KEY_SMD_RESISTOR("com.brandoncano.inductancecalculator.smd.resistor"),
+    KEY_SMD_INDUCTOR("com.brandoncano.inductancecalculator.smd.inductor"),
 }

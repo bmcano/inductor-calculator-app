@@ -1,8 +1,8 @@
-package com.brandoncano.resistancecalculator.util
+package com.brandoncano.inductancecalculator.util
 
 import android.app.AlertDialog
 import android.content.Context
-import com.brandoncano.resistancecalculator.R
+import com.brandoncano.inductancecalculator.R
 
 /**
  * Job: Build an alert dialog for when an error occurs

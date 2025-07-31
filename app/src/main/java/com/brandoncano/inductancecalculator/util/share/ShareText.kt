@@ -1,4 +1,4 @@
-package com.brandoncano.resistancecalculator.util.share
+package com.brandoncano.inductancecalculator.util.share
 
 import android.content.Context
 import android.content.Intent

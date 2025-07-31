@@ -1,12 +1,13 @@
-package com.brandoncano.inductancecalculator.model.vtc
+package com.brandoncano.inductancecalculator.to
 
 import com.brandoncano.inductancecalculator.util.adjustValueForSharing
+import java.io.Serializable
 
 data class InductorVtc(
     val inductance: String = "",
     val units: String = "",
     val tolerance: String = "",
-) {
+) : Serializable {
     var band1 = ""
     var band2 = ""
     var band3 = ""
